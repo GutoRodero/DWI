@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Calculadora</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Mini Calculadora</h1>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <label for="numero1">Número 1</label>
+                        <input type="number" class="form-control" id="numero1">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="numero2">Número 2</label>
+                        <input type="number" class="form-control" id="numero2">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="resultado">Resultado</label>
+                        <input type="number" class="form-control" id="resultado" readonly>
+                    </div>
+                        <div class="form-group col-md-1 mt-4">
+                            <button type="button" class="btn btn-primary btn-block" onclick="soma()">Soma</button>
+                        </div>
+                        <div class="form-group col-md-2 mt-4">
+                            <button type="button" class="btn btn-primary btn-block" onclick="subtracao()">Subtração</button>
+                        </div>
+                        <div class="form-group col-md-2 mt-4">
+                            <button type="button" class="btn btn-primary btn-block" onclick="multiplicacao()">Multiplicação</button>
+                        </div>
+                        <div class="form-group col-md-1 mt-4">
+                            <button type="button" class="btn btn-primary btn-block" onclick="divisao()">Divisão</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function soma() {
+            let num1 = parseFloat(document.getElementById('numero1').value);
+            let num2 = parseFloat(document.getElementById('numero2').value);
+            let res = num1 + num2;
+            document.getElementById('resultado').value = res;
+        }
+
+        function subtracao() {
+            let num1 = parseFloat(document.getElementById('numero1').value);
+            let num2 = parseFloat(document.getElementById('numero2').value);
+            let res = num1 - num2;
+            document.getElementById('resultado').value = res;
+        }
+
+        function multiplicacao() {
+            let num1 = parseFloat(document.getElementById('numero1').value);
+            let num2 = parseFloat(document.getElementById('numero2').value);
+            let res = num1 * num2;
+            document.getElementById('resultado').value = res;
+        }
+
+        function divisao() {
+            let num1 = parseFloat(document.getElementById('numero1').value);
+            let num2 = parseFloat(document.getElementById('numero2').value);
+            if (num2 === 0) {
+                alert('Não é possível dividir por zero');
+                return;
+            }
+            let res = num1 / num2;
+            document.getElementById('resultado').value = res;
+        }
+    </script>
+</body>
+
+</html>

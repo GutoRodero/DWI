@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando 3</title>
+    <style>
+        .inLineBlock {
+            display: inline-block;
+            min-height: 2vw;
+            min-width: 10vw;
+            border: solid 1px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Praticando 3 - JavaScript - Cores(click e mouse)</h1>
+    <div class="container">
+        <div class="row">
+            <div id="div1" class="inLineBlock" style="background-color: red;"></div>
+            <div id="div2" class="inLineBlock" style="background-color: green;"></div>
+            <div id="div3" class="inLineBlock" style="background-color: blue;"></div>
+            <div id="div4" class="inLineBlock" style="background-color: yellow;"></div>
+            <div id="div5" class="inLineBlock" style="background-color: pink;"></div>
+        </div>
+        <div id="div6" class="inLineBlock" style="background-color: lightgray; min-width: 5vw;">Reset</div>
+    </div>
+    <script>
+        var body = document.body
+        let div1 = document.getElementById('div1');
+        var bcg = 'white';
+        div1.addEventListener('click', function () {
+            body.style.backgroundColor = 'red';
+            bcg = 'red';
+        })
+        div2.addEventListener('click', function () {
+            body.style.backgroundColor = 'green';
+            bcg = 'green';
+        })
+        div3.addEventListener('click', function () {
+            body.style.backgroundColor = 'blue';
+            bcg = 'blue';
+        })
+        div4.addEventListener('click', function () {
+            body.style.backgroundColor = 'yellow';
+            bcg = 'yellow';
+        })
+        div5.addEventListener('click', function () {
+            body.style.backgroundColor = 'pink';
+            bcg = 'pink';
+        })
+        div6.addEventListener('click', function () {
+            body.style.backgroundColor = 'white';
+            bcg = 'white';
+        })
+
+        div1.addEventListener('mouseover', function () {
+            body.style.backgroundColor = 'red';
+        })
+        div2.addEventListener('mouseover', function () {
+            body.style.backgroundColor = 'green';
+        })
+        div3.addEventListener('mouseover', function () {
+            body.style.backgroundColor = 'blue';
+        })
+        div4.addEventListener('mouseover', function () {
+            body.style.backgroundColor = 'yellow';
+        })
+        div5.addEventListener('mouseover', function () {
+            body.style.backgroundColor = 'pink';
+        })
+
+
+
+        div1.addEventListener('mouseout', function () {
+            body.style.backgroundColor = bcg;
+        })
+        div2.addEventListener('mouseout', function () {
+            body.style.backgroundColor = bcg;
+        })
+        div3.addEventListener('mouseout', function () {
+            body.style.backgroundColor = bcg;
+        })
+        div4.addEventListener('mouseout', function () {
+            body.style.backgroundColor = bcg;
+        })
+        div5.addEventListener('mouseout', function () {
+            body.style.backgroundColor = bcg;
+        })
+        div6.addEventListener('mouseout', function () {
+            body.style.backgroundColor = bcg;
+        })
+    </script>
+</body>
+
+</html>

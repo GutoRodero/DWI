@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+        .lhama1 {
+            background-color: lightgreen;
+            border-top: blue solid 20px;
+            border-bottom: blue solid 20px;
+            padding-bottom: 60px;
+            text-align: left;
+        }
+
+        .lhama2 {
+            background-color: lightcoral;
+            border-top: red solid 20px;
+            border-bottom: red solid 20px;
+            padding-bottom: 60px;
+            text-align: right;
+        }
+
+        /* Adicionar margem direita para as imagens */
+        .lhama-image {
+            margin-right: 20px;
+            /* Ajuste o valor conforme necessário */
+        }
+
+        /* Adicionar margem esquerda para as imagens da segunda div */
+        .lhama2 .lhama-image {
+            margin-left: 20px;
+            /* Ajuste o valor conforme necessário */
+        }
+    </style>
+</head>
+
+<body>
+    <h4>Praticando 2 - Lhama - lhama - lhama!</h4>
+
+    <div class="lhama1">
+        <h1 style="font-family: 'Lobster'; font-size: 50px;">Lhama, lhama, lhama!</h1>
+        <div id="lhamaContainer1" style="margin-left: 50px;"></div>
+
+        <script>
+            // Função para criar e adicionar uma imagem na primeira div
+            function criarImagem1(tamanho) {
+                let img = document.createElement("img");
+                img.src = "img.jpg"; // Substitua 'img.jpg' pela URL da sua imagem
+                img.alt = "Imagem de uma lhama";
+                img.style.width = tamanho + "px";
+                img.style.height = tamanho + "px";
+                img.classList.add("lhama-image"); // Adicione a classe para margem
+                document.getElementById("lhamaContainer1").appendChild(img);
+            }
+
+            // Loop para criar quatro imagens aumentando o tamanho em 100px a cada vez na primeira div
+            for (let i = 1; i <= 4; i++) {
+                criarImagem1(150 + i * 50);
+            }
+        </script>
+    </div>
+    <br>
+    <div class="lhama2">
+        <h1 style="font-family: 'Lobster'; font-size: 50px;">Lhama, lhama, lhama!</h1>
+        <div id="lhamaContainer2" style="margin-left: 50px;"></div>
+        <script>
+            // Função para criar e adicionar uma imagem na segunda div
+            function criarImagem2(tamanho) {
+                let img = document.createElement("img");
+                img.src = "img.jpg"; // Substitua 'img.jpg' pela URL da sua imagem
+                img.alt = "Imagem de uma lhama";
+                img.style.width = tamanho + "px";
+                img.style.height = tamanho + "px";
+                img.classList.add("lhama-image"); // Adicione a classe para margem
+                document.getElementById("lhamaContainer2").appendChild(img);
+            }
+
+            // Loop para criar quatro imagens aumentando o tamanho em 100px a cada vez na segunda div
+            for (let i = 1; i <= 4; i++) {
+                criarImagem2(400 - i * 50);
+            }
+        </script>
+    </div>
+</body>
+
+</html>

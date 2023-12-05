@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu com Seções</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        section {
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        button {
+            font-size: 16px;
+            margin-top: 10px;
+            padding: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<section>
+    <h2>Deep tech - Aula 2</h2>
+    <button onclick="redirecionar('./Atividade 1/index.html')">Exercicios</button>
+</section>
+
+<section>
+    <h2>Loja de Celulares - Aula 3</h2>
+    <button onclick="redirecionar('./Atividade 2/detalhes.html')">Exercicios</button>
+</section>
+
+<section>
+    <h2>Tabelas, colspan, rowspan - Aula 4</h2>
+    <button onclick="redirecionar('./Atividade 3/ex1.html')">Exercicios 1</button>
+    <button onclick="redirecionar('./Atividade 3/ex2.html')">Exercicios 2</button>
+    <button onclick="redirecionar('./Atividade 3/ex3.html')">Exercicios 3</button>
+    <button onclick="redirecionar('./Atividade 3/ex4.html')">Exercicios 4</button>
+    <button onclick="redirecionar('./Atividade 3/ex5.html')">Exercicios 5</button>
+</section>
+
+<section>
+    <h2>Opacidade - Aula 5</h2>
+    <button onclick="redirecionar('./Atividade 4/index.html')">Exercicio 1</button>
+    <button onclick="redirecionar('./Atividade 4/index2.html')">Exercicio 2</button>
+    <button onclick="redirecionar('./Atividade 4/index3.html')">Exercicio 3</button>
+</section>
+
+<section>
+    <h2>Unidades Medida - Aula 6</h2>
+    <button onclick="redirecionar('./Atividade 5/index.html')">Exercicio 1</button>
+    <button onclick="redirecionar('./Atividade 5/index2.html')">Exercicio 2</button>
+    <button onclick="redirecionar('./Atividade 5/index3.html')">Exercicio 3</button>
+    <button onclick="redirecionar('./Atividade 5/index4.html')">Exercicio 4</button>
+    <button onclick="redirecionar('./Atividade 5/index5.html')">Exercicio 5</button>
+</section>
+
+<section>
+    <h2>Caixas - Aula 7</h2>
+    <button onclick="redirecionar('./Atividade 6/index.html')">Exercicio 1</button>
+    <button onclick="redirecionar('./Atividade 6/index2.html')">Exercicio 2</button>
+    <button onclick="redirecionar('./Atividade 6/index3.html')">Exercicio 3</button>
+</section>
+
+<section>
+    <h2>JavaScript - Aula 8</h2>
+    <button onclick="redirecionar('./Atividade 7/index.html')">Exercicios</button>
+</section>
+
+<section>
+    <h2>JavaScript 2 - Aula 9</h2>
+    <button onclick="redirecionar('./Atividade 8/index.html')">Exercicio 1</button>
+    <button onclick="redirecionar('./Atividade 8/index2.html')">Exercicio 1</button>
+    <button onclick="redirecionar('./Atividade 8/index3.html')">Exercicio 1</button>
+</section>
+
+<section>
+    <h2>Formulários / Lampada / Jogo - Aula 10</h2>
+    <button onclick="redirecionar('./aula11/praticando1.html')">Exercicio 1</button>
+    <button onclick="redirecionar('./aula11/praticando2.html')">Exercicio 2</button>
+    <button onclick="redirecionar('./aula11/praticando3.html')">Exercicio 3</button>
+    <button onclick="redirecionar('./aula11/praticando4.html')">Exercicio 4</button>
+</section>
+
+<section>
+    <h2>Formulários / Lampada / Jogo JQuery - Aula 11</h2>
+    <button onclick="redirecionar('./aula12/praticando.html')">Exercicio 1</button>
+    <button onclick="redirecionar('./aula12/praticando1.html')">Exercicio 2</button>
+    <button onclick="redirecionar('./aula12/praticando3.html')">Exercicio 3</button>
+    <button onclick="redirecionar('./aula12/praticando4.html')">Exercicio 4</button>
+</section>
+
+<section>
+    <h2>Atividade AJAX</h2>
+    <button onclick="redirecionar('./AtividadeAjax/index.html')">Exercicios</button>
+</section>
+
+<script>
+    function redirecionar(pagina) {
+        window.location.href = pagina;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <h2>Praticando 1 - JavaScript</h2>
+
+    <div id="welcomeMessage"></div>
+
+    <button id="addText" class="btn btn-primary">Adicionar Texto</button>
+    <button id="removeText" class="btn btn-primary">Remover Texto</button>
+    <div id="textContainer"></div>
+
+    <script>
+        // Função para obter o nome do usuário usando um prompt
+        function getUserName() {
+            var userName = prompt("Digite seu nome:");
+            return userName;
+        }
+
+        // Função para exibir a mensagem de boas-vindas
+        function displayWelcomeMessage(userName) {
+            var welcomeMessage = "Bem-vindo, " + userName + "!";
+            $("#welcomeMessage").text(welcomeMessage);
+        }
+
+        // Obtenha o nome do usuário usando um prompt ao iniciar a página
+        var userName = getUserName();
+
+        if (userName !== null) {
+            // Exiba a mensagem de boas-vindas com o nome do usuário
+            displayWelcomeMessage(userName);
+        }
+
+        // Texto armazenado em um arquivo JSON
+        var jsonText = {
+            "loremIpsum": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla elementum interdum tellus, at congue elit sollicitudin et. Proin bibendum tortor eu augue tempus, at facilisis turpis faucibus. Mauris sed velit sed urna consectetur convallis eu a sapien. Proin malesuada erat ut augue sollicitudin, nec interdum metus pulvinar. Curabitur feugiat orci eu leo faucibus, non pulvinar erat sollicitudin. In at neque lacus. Curabitur ullamcorper massa eu purus fermentum, eu eleifend justo dictum. Suspendisse potenti. Mauris tincidunt justo eu augue convallis, eu consequat augue imperdiet. Cras sit amet dui quis justo eleifend ultricies eu id sapien."
+        };
+
+        $("#addText").click(function () {
+            var newParagraph = $('<p></p>').text(jsonText.loremIpsum);
+            $("#textContainer").append(newParagraph);
+        });
+
+        $("#removeText").click(function () {
+            var lastParagraph = $("#textContainer p:last-child");
+            if (lastParagraph.length) {
+                lastParagraph.remove();
+            }
+        });
+    </script>
+</body>
+</html>

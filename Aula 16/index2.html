@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando 1 - Lâmpada</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Praticando 1 - Lâmpada</h1>
+    <figure style="text-align: center;">
+        <img id="lampada" src="./lampada.png" alt="lampada">
+        <figcaption id="caption">Lâmpada apagada</figcaption>
+    </figure>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            // Se você precisar de inicializações usando jQuery
+        });
+    </script>
+    <script>
+        var lamp = document.querySelector("#lampada");
+        var body = document.body;
+        var caption = document.getElementById("caption");
+
+        var lampInfo = {
+            "lampOff": {
+                "image": "./lampada.png",
+                "backgroundColor": "black",
+                "color": "white",
+                "caption": "Lâmpada apagada"
+            },
+            "lampOn": {
+                "image": "./lampada-acesa.png",
+                "backgroundColor": "white",
+                "color": "black",
+                "caption": "Lâmpada acesa"
+            }
+        };
+
+        lamp.addEventListener("mouseover", function () {
+            updateLampInfo("lampOn");
+        });
+
+        lamp.addEventListener("mouseout", function () {
+            updateLampInfo("lampOff");
+        });
+
+        function updateLampInfo(state) {
+            var info = lampInfo[state];
+            lamp.src = info.image;
+            body.style.backgroundColor = info.backgroundColor;
+            body.style.color = info.color;
+            caption.textContent = info.caption;
+        }
+    </script>
+</body>
+
+</html>

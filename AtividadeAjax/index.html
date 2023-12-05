@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho AJAX</title>
+
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../bootstrap-4.0.0-dist/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.3.4/jquery.inputmask.bundle.min.js"></script>
+
+    <style>
+        .fundoCinza {
+            background-color: rgb(232, 232, 232);
+        }
+    </style>
+</head>
+
+<body>
+    <form class="row g-3 was-validated">
+        <div class="container-fluid">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row fundoCinza">
+                        <div class="col-md-6">
+                            <div class="col-md-12">
+                                <label for="nome" class="form-label">Nome </label>
+                                <input class="form-control" id="nome" placeholder="Digite seu nome" required>
+                                <div class="invalid-feedback">
+                                    Digite seu nome
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="nome" class="form-label">Email </label>
+                                <input class="form-control" id="email" placeholder="Digite seu email" required>
+                                <div class="invalid-feedback">
+                                    Digite seu email
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-lg-12" style="text-align: center;">
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" onclick="inserir()" type="button">Cadastrar</button>
+                                    <button class="btn btn-warning" type="reset">Limpar</button>
+                                </div>
+                                <br><br>
+                                <button class="btn btn-success" onclick="location.reload()" type="submit">Atualizar
+                                    dados tabela</button>
+                            </div>
+
+                            <br>
+                            <div class="col-lg-12" id="sucesso-alert" style="display: none;">
+                                <div class="alert alert-success" role="alert">
+                                    Sucesso!
+                                </div>
+                            </div>
+                            <div class="col-lg-12" id="error-alert" style="display: none;">
+                                <div class="alert alert-danger" role="alert">
+                                    Erro!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="list-group">
+                                <table id="listagem" class="display table" style="width:100%">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col" class="text-warning">Nome</th>
+                                            <th scope="col" class="text-warning">Email</th>
+                                            <th scope="col" class="text-warning" style="text-align: center;">Opções</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="lista-dados"></tbody>
+                                </table>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </form>
+</body>
+
+</html>
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            var forms = document.getElementsByClassName('needs-validation');
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+    $(document).ready(function () {
+        $.ajax({
+            url: "https://epansani.com.br/2023/dw1s4/ajax/list.php",
+            type: "GET",
+            dataType: "json",
+            success: function (data) {
+                exibirLista(data);
+            },
+            error: function (error) {
+                console.error("Erro na requisição:", error);
+            }
+        });
+
+        function exibirLista(dados) {
+            $("#lista-dados").empty();
+
+            $.each(dados, function (index, item) {
+                var linha = $("<tr><td>" + item.nome + "</td><td>" + item.email + "</td><td><div style='text-align: center;'> <button class='btn btn-warning' onclick=\"excluir('" + item.id + "')\" type='reset'>Excluir</button></div></td></tr>");
+
+                $("#lista-dados").append(linha);
+            });
+        }
+    });
+
+    function inserir() {
+        var nome = $("#nome").val();
+        var email = $("#email").val();
+
+        // Check if both fields are non-empty
+        if (nome.trim() === '' || email.trim() === '') {
+            // Show an error message or handle it as per your requirements
+            console.error("Nome e email devem ser preenchidos.");
+            return;
+        }
+
+        // Proceed with the AJAX request
+        $.ajax({
+            type: 'POST',
+            url: 'https://epansani.com.br/2023/dw1s4/ajax/ins.php',
+            async: true,
+            data: {
+                nome: nome,
+                email: email
+            },
+            success: function (data) {
+                $("#nome").val('');
+                $("#email").val('');
+                $('#sucesso-alert').show();
+            },
+            error: function (error) {
+                console.error("Erro na inserção:", error);
+                $('#error-alert').show();
+            }
+        });
+    }
+
+    function excluir(id) {
+        $.ajax({
+            type: "POST",
+            url: 'https://epansani.com.br/2023/dw1s4/ajax/rem.php',
+            async: true,
+            data: {
+                id: id,
+            },
+            success: function (data) {
+                $('#sucesso-alert').show();
+            },
+            error: function (error) {
+                alert("1");
+                console.error("Erro na inserção:", error);
+                $('#error-alert').show();
+            }
+        });
+    }
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cores</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: white;
+            margin: 20px;
+        }
+/* 
+        .btn-highlight:hover {
+            background-color: black !important;
+        } */
+
+        .btn-pink{
+            background-color: rgb(187, 132, 141);
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Praticando 3 - JavaScript - Cores (click e mouse)</h2>
+    <div class="row">
+        <div class="col-2">
+            <button id="btnVermelho" class="btn btn-danger btn-block btn-highlight">Vermelho</button>
+        </div>
+        <div class="col-2">
+            <button id="btnVerde" class="btn btn-success btn-block btn-highlight">Verde</button>
+        </div>
+        <div class="col-2">
+            <button id="btnAzul" class="btn btn-primary btn-block btn-highlight">Azul</button>
+        </div>
+        <div class="col-2">
+            <button id="btnAmarelo" class="btn btn-warning btn-block btn-highlight">Amarelo</button>
+        </div>
+        <div class="col-2">
+            <button id="btnRosa" class="btn btn-pink btn-block btn-highlight">Rosa</button>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-2">
+            <button id="btnReset" class="btn btn-secondary btn-block">Reset</button>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var originalColor = $("body").css("background-color");
+            var hoverColor = originalColor;
+
+            $("#btnVermelho").click(function () {
+                $("body").css("background-color", "red");
+                hoverColor = "red";
+            });
+
+            $("#btnVerde").click(function () {
+                $("body").css("background-color", "green");
+                hoverColor = "green";
+            });
+
+            $("#btnAzul").click(function () {
+                $("body").css("background-color", "blue");
+                hoverColor = "blue";
+            });
+
+            $("#btnAmarelo").click(function () {
+                $("body").css("background-color", "yellow");
+                hoverColor = "yellow";
+            });
+
+            $("#btnRosa").click(function () {
+                $("body").css("background-color", "pink");
+                hoverColor = "pink";
+            });
+
+            $("#btnReset").click(function () {
+                $("body").css("background-color", originalColor);
+                hoverColor = originalColor;
+            });
+
+            $(".btn-highlight").hover(
+                function () {
+                    var buttonColor = $(this).css("background-color");
+                    $("body").css("background-color", buttonColor);
+                },
+                function () {
+                    $("body").css("background-color", hoverColor);
+                }
+            );
+        });
+    </script>
+</body>
+
+</html>

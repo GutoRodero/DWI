@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando 1 - lampada</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Praticando 1 - Lâmpada</h1>
+    <figure style="text-align: center;">
+        <img id="lampada" src="./lampada.png" alt="lampada" >
+        <figcaption id="caption" >Lâmpada apagada</figcaption>
+    </figure>
+
+    <script>
+        var lamp = document.querySelector("#lampada")
+        var body = document.body
+        var caption = document.getElementById("caption")
+        lamp.addEventListener("mouseover", function () {
+            lamp.src = "./lampada-acesa.png";
+            body.style.backgroundColor = "white";
+            body.style.color = "black";
+            
+            caption.textContent = "Lâmpada acesa";
+
+        })
+        lamp.addEventListener("mouseout", function () {
+
+            body.style.backgroundColor = "black";
+            body.style.color = "white";
+            lamp.src = "./lampada.png";
+            caption.textContent = "Lâmpada apagada";
+        })
+
+
+    </script>
+</body>
+
+</html>

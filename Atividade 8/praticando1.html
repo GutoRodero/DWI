@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo 2</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            background-color: #1f1f1f;
+            color: white;
+        }
+
+        .color-box {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="text-center">Exemplo 2</h1>
+        <h2 class="text-center">Mudar Cor de Fundo</h2>
+        <div class="row justify-content-center">
+            <div id="redBox" class="color-box" style="background-color: red"></div>
+            <div id="greenBox" class="color-box" style="background-color: green"></div>
+            <div id="blueBox" class="color-box" style="background-color: blue"></div>
+        </div>
+    </div>
+    <script>
+        const redBox = document.getElementById('redBox');
+        const greenBox = document.getElementById('greenBox');
+        const blueBox = document.getElementById('blueBox');
+
+        redBox.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'red';
+        });
+
+        greenBox.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'green';
+        });
+
+        blueBox.addEventListener('click', () => {
+            document.body.style.backgroundColor = 'blue';
+        });
+    </script>
+</body>
+</html>

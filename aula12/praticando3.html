@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando 3</title>
+    <style>
+        .inLineBlock {
+            display: inline-block;
+            min-height: 2vw;
+            min-width: 10vw;
+            border: solid 1px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+
+<body>
+    <h1>Praticando 3 - JavaScript - Cores (click e mouse)</h1>
+    <div class="container">
+        <div class="row">
+            <div id="div1" class="inLineBlock" style="background-color: red;"></div>
+            <div id="div2" class="inLineBlock" style="background-color: green;"></div>
+            <div id="div3" class="inLineBlock" style="background-color: blue;"></div>
+            <div id="div4" class="inLineBlock" style="background-color: yellow;"></div>
+            <div id="div5" class="inLineBlock" style="background-color: pink;"></div>
+        </div>
+        <div id="div6" class="inLineBlock" style="background-color: lightgray; min-width: 5vw;">Reset</div>
+    </div>
+    <script>
+        $(document).ready(function () {
+            var body = $('body');
+            var bcg = 'white';
+            var originalColor;
+
+            // Função para manipular os eventos
+            function handleEvent(color) {
+                body.css('background-color', color);
+                bcg = color;
+            }
+
+            // Adiciona eventos para cada div
+            $('.inLineBlock').on({
+                click: function () {
+                    handleEvent($(this).css('background-color'));
+                },
+                mouseover: function () {
+                    originalColor = $(this).css('background-color');
+                    body.css('background-color', originalColor);
+                },
+                mouseout: function () {
+                    body.css('background-color', bcg);
+                }
+            });
+
+            // Evento para a div6
+            $('#div6').click(function () {
+                handleEvent('white');
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praticando 1</title>
+    <style>
+        #myHeaderName{}
+        div{
+            background-color: lightgray;
+            border: solid 1px;
+            display: inline-block;
+        }
+        #div1{
+
+        }
+        #div2{
+
+        
+        }
+    </style>
+</head>
+<body>
+ <h1 >Praticando 1 - JavaScript</h1>
+ <h2 id = myHeadName></h2>
+<div id = div1>Adicionar texto (parágrafo de Lorem Ipsum)</div>
+<br><br>
+
+<div id = div2>Remover texto (todos os parágrafos)</div>
+
+    <script>
+        
+        let nome = prompt("Qual o seu nome?");
+        let header = document.getElementById("myHeadName");
+        header.textContent = "Seja bem vindo, " + nome;
+        let div1 = document.getElementById("div1");
+
+        div1.addEventListener("click", function(){
+            let paragraph = document.createElement("p");
+            paragraph.innerText = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam sequi, reprehenderit incidunt pariatur aliquid autem debitis consequuntur dolore iusto, repellat consequatur saepe aut ut sint mollitia dolorem fugit nobis optio!";
+            document.body.appendChild(paragraph);
+        })
+        div2.addEventListener("click", function(){
+            let deleteParagraph = document.querySelectorAll("p");
+            deleteParagraph.forEach(function(deleteParagraph){
+                deleteParagraph.remove();
+            })
+        })
+
+
+    </script>
+</body>
+</html>
